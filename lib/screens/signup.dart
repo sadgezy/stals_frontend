@@ -7,6 +7,25 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  Widget _buildButton(String btnText) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          minimumSize: const Size(220, 60),
+          maximumSize: const Size(220, 60),
+          elevation: 0,
+          // backgroundColor: Colors.black.withOpacity(0.3)
+        ),
+        child: Text(btnText, style: const TextStyle(fontSize: 18)),
+        onPressed: () {
+          // if(btnText == "Owner"){navigate}
+          // else if (btnText == "Customer"){navigate}
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final backButton = Padding(
@@ -27,19 +46,19 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: ListView(
-          shrinkWrap: true,
-          padding: const EdgeInsets.only(left: 40.0, right: 40.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Padding(padding: EdgeInsets.symmetric(vertical: 20)),
-            backButton,
-            const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
             const Text(
-              "Get Started.",
+              "You are\na/an",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold),
             ),
-            const Padding(padding: EdgeInsets.symmetric(vertical: 15)),
+            const SizedBox(height: 75),
+            _buildButton("Owner"),
+            _buildButton("Customer"),
+            const SizedBox(height: 100),
+            backButton
           ],
         ),
       ),
