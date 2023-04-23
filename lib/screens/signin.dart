@@ -27,6 +27,7 @@ class _SignInPageState extends State<SignInPage> {
           },
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
+            contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             labelText: 'E-mail',
           ),
         ));
@@ -44,6 +45,7 @@ class _SignInPageState extends State<SignInPage> {
           obscureText: true,
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
+            contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             labelText: 'Password',
           ),
         ));
@@ -53,45 +55,65 @@ class _SignInPageState extends State<SignInPage> {
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-            shape: const StadiumBorder(),
-            backgroundColor: const Color.fromARGB(255, 67, 134, 221),
-            padding: const EdgeInsets.symmetric(horizontal: 44, vertical: 22),
-            textStyle:
-                const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-        child: const Text('Login', style: TextStyle(color: Colors.white)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18),
+            ),
+            shadowColor: Colors.black,
+            elevation: 5,
+            backgroundColor: const Color.fromARGB(255, 25, 83, 95),
+            padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 15),
+            textStyle: const TextStyle(
+              fontSize: 15,
+            )),
+        child: const Text('Sign in', style: TextStyle(color: Colors.white)),
       ),
     );
 
-    final signupButton = ElevatedButton(
-      onPressed: () async {
+    final signupButton = Container(
+        child: GestureDetector(
+      onTap: () async {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => const SignUpPage(),
           ),
         );
       },
-      style: ElevatedButton.styleFrom(
-          shape: const StadiumBorder(),
-          backgroundColor: const Color.fromARGB(255, 67, 134, 221),
-          padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 13),
-          textStyle: const TextStyle(fontSize: 12)),
-      child: const Text('Sign Up', style: TextStyle(color: Colors.white)),
-    );
+      child: const Text(
+        'Make an Account!',
+        style: TextStyle(color: Color.fromARGB(255, 25, 83, 95)),
+      ),
+    ));
+
+    // ElevatedButton(
+    //   onPressed: () async {
+    //     Navigator.of(context).push(
+    //       MaterialPageRoute(
+    //         builder: (context) => const SignUpPage(),
+    //       ),
+    //     );
+    //   },
+    //   style: ElevatedButton.styleFrom(
+    //       shape: const StadiumBorder(),
+    //       backgroundColor: const Color.fromARGB(255, 25, 83, 95),
+    //       padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 13),
+    //       textStyle: const TextStyle(fontSize: 12)),
+    //   child: const Text('Sign Up', style: TextStyle(color: Colors.white)),
+    // );
 
     final loginFields = Container(
-      margin: const EdgeInsets.symmetric(horizontal: 300),
       child: Column(
         children: [
           email,
           const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
           password,
-          const Padding(padding: EdgeInsets.symmetric(vertical: 12)),
+          const Padding(padding: EdgeInsets.symmetric(vertical: 15)),
           loginButton,
-          const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+          const Padding(padding: EdgeInsets.symmetric(vertical: 20)),
           const Text(
             "No account yet?",
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 10, fontStyle: FontStyle.italic),
+            style: TextStyle(
+                fontSize: 12, color: Color.fromARGB(255, 240, 243, 245)),
           ),
           const Padding(padding: EdgeInsets.symmetric(vertical: 3)),
           signupButton
@@ -100,8 +122,18 @@ class _SignInPageState extends State<SignInPage> {
     );
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
+        body: Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Color.fromARGB(255, 240, 243, 245),
+          Color.fromARGB(255, 25, 83, 95)
+        ],
+        stops: [0.35, 0.95],
+      )),
+      child: Center(
         child: ListView(
           shrinkWrap: true,
           padding: const EdgeInsets.only(left: 40.0, right: 40.0),
@@ -110,13 +142,13 @@ class _SignInPageState extends State<SignInPage> {
             const Text(
               "Welcome Back!",
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
             ),
-            const Padding(padding: EdgeInsets.symmetric(vertical: 15)),
+            const Padding(padding: EdgeInsets.symmetric(vertical: 30)),
             loginFields
           ],
         ),
       ),
-    );
+    ));
   }
 }
