@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stals_frontend/screens/signin.dart';
 import 'package:stals_frontend/screens/signup.dart';
 import 'package:stals_frontend/screens/homepage.dart';
+import 'package:stals_frontend/screens/signup_info.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => const MyHomePage(title: 'CMSC 128'),
         '/signin': (context) => const SignInPage(),
         '/signup': (context) => const SignUpPage(),
-        '/homepage': (context) => const UnregisteredHomepage()
+        '/homepage': (context) => const UnregisteredHomepage(),
+        '/signup_info': (context) => SignUpForm(),
       },
     );
   }

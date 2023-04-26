@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'signup_info.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -19,8 +20,11 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
         child: Text(btnText, style: const TextStyle(fontSize: 18)),
         onPressed: () {
-          // if(btnText == "Owner"){navigate}
-          // else if (btnText == "Customer"){navigate}
+          if (btnText == "Owner") {
+            Navigator.pushNamed(context, '/signup_info');
+          } else if (btnText == "Customer") {
+            Navigator.pushNamed(context, '/signup_info');
+          }
         },
       ),
     );
