@@ -3,6 +3,7 @@ import 'package:stals_frontend/screens/signin.dart';
 import 'package:stals_frontend/screens/signup.dart';
 import 'package:stals_frontend/screens/homepage.dart';
 import 'package:stals_frontend/screens/signup_info.dart';
+import 'package:stals_frontend/screens/verify_user.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/signup': (context) => const SignUpPage(),
         '/homepage': (context) => const UnregisteredHomepage(),
         '/signup_info': (context) => SignUpForm(),
+        '/verify_user': (context) => VerificationPage(),
       },
     );
   }

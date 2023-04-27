@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stals_frontend/screens/verify_user.dart';
 
 class SignUpForm extends StatefulWidget {
   @override
@@ -86,9 +87,9 @@ class _SignUpFormState extends State<SignUpForm> {
               onChanged: (value) => _phone = value,
             ),
             MaterialButton(
-              child: Text('Sign Up'),
+              child: Text('Next'),
               onPressed: () {
-                // TODO: Sign up the user.
+                Navigator.pushNamed(context, '/verify_user');
               },
             ),
           ],
